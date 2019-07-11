@@ -1,0 +1,10 @@
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\obj\Debug\DailyRundown.csprojAssemblyReference.cache
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\obj\Debug\DailyRundown.csproj.CoreCompileInputs.cache
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\bin\Debug\DailyRundown.exe.config
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\bin\Debug\DailyRundown.exe
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\bin\Debug\DailyRundown.pdb
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\obj\Debug\DailyRundown.csproj.CopyComplete
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\obj\Debug\DailyRundown.exe
+C:\Users\Eric\source\repos\DailyRundown\DailyRundown\obj\Debug\DailyRundown.pdb
