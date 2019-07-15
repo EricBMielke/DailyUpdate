@@ -70,22 +70,14 @@ namespace DailyRundown
             if (response.IsSuccessStatusCode)
             {
                 string responseBody = await response.Content.ReadAsStringAsync();
-                JObject result = JObject.Parse(responseBody);
-                Console.WriteLine(result);
-                var sportsNewsArray = result["results.title"].Value<JArray>();
-                List<Result> stories = sportsNewsArray.ToObject<List<Result>>();
-                Console.WriteLine(stories);
+                dynamic parsedBody = JsonConvert.DeserializeObject(responseBody);
+                for (int i = 0; i < 10; i++)
+                {
+                    string realTimeNews = parsedBody.results[i].title;
+                    Console.WriteLine(realTimeNews);
+                }
                 Console.ReadLine();
-                string foo = "dog";
-
-                //dynamic parsedBody = JsonConvert.DeserializeObject(responseBody);
-                //Console.WriteLine(parsedBody);
-                //Console.ReadLine();
-                //string realTimeSportsNews.ToObject<List<SelectableEnumItem>>() = parsedBody.results;
-                //string realTimeSportsNews = parsedBody.results;
-                //string[] reaTimeSportsNews = realTimeSportsNews.title.ToObject<string[]>();
-                //Console.WriteLine("The hot gossip on sports is "+realTimeSportsNews);
-                return foo;
+                return "foo";
             }
             else
             {
@@ -93,6 +85,29 @@ namespace DailyRundown
                 string realTimeSportsNews = "so";
                 return realTimeSportsNews;
             }
+        }
+
+        public int NewsSelection()
+        {
+            Console.WriteLine("Do any of these news stories interest you? If so, which one?");
+            string newsDecision=Console.ReadLine();
+            int newsDecisionInt = Convert.ToInt32(newsDecision);
+            return newsDecisionInt;
+        }
+        public async Task<string> FetchSportsSpecificStory(int interestingNewsStory)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(URL);
+            client.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("?api-key=43wDT9yQnT0ilG6lvpGqQA37lzjQ70vG").Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
+            string responseBody = await response.Content.ReadAsStringAsync();
+            var parsedBody = JsonConvert.DeserializeObject<JObject>(responseBody);
+            var realTimeNews = parsedBody["results"][interestingNewsStory - 1]["abstract"];
+            Console.WriteLine(realTimeNews);
+            Console.ReadLine();
+            return "Complete";
+                
         }
     }
 }

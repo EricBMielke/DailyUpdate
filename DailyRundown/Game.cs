@@ -14,7 +14,9 @@ namespace DailyRundown
             await todaysWeather.fetchWeatherOnline("Milwaukee");
             OnlineNews todaysSportsNews = new OnlineNews();
             await todaysSportsNews.FetchSportsNewsOnline();
-            Console.ReadLine();
+            int interestingNewsInt = todaysSportsNews.NewsSelection();
+            await todaysSportsNews.FetchSportsSpecificStory(interestingNewsInt);
+
             return "Complete";
         }
 
